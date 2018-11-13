@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- import from Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300, bold" rel="stylesheet">
+
+<!-- import js files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
+<title>Track Events</title>
+
+</head>
+
+<body>
+
+<div class="body">  
+  <div class= "container-fluid">
+
+<!-- First Row -->
+    <div id="con1">
+      <div class=row>
+        <div class="col-md-10"><h1 id="head1"><img src="images/TrackEvents.png" height="100"><img src="http://www.olympiandatabase.com/fileadmin/images/pictograms/summer_olympics/Olympic_pictogram_Athletics.png" height="100"><hr></h1>
+        </div>
+        <div class="col-md-2">
+            <div id="back-to-home">
+                <a href="#">back to home</a></div>
+            </div>
+        </div>
+      </div>   
+      
+<!-- Second row -->
+    <div id="con2">
+      <div class=row>
+          <div class="col-md-1">
+            <div id="track-box-1">
+                <h1><div id="event-header-1">Event</h1>
+                <hr>
+                <select id="selDataset" onchange="getData(this.value)">
+                    <option value="dataset1">100 Meter</option>
+                    <option value="dataset2">200 Meter</option>
+                    <option value="dataset3">400 Meter</option>
+                </select>
+                <div class=row>
+                    <hr>
+                    <div class="col-xs-2 col-md-6">
+                        <br>
+                        <br>
+                        <p>Male</p>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-xs-10 col-md-6">
+                     <label class="container">
+                            <label class="container">Gold
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                  <label class="container">Silver
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                  <label class="container">Bronze
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                  <label class="container">All
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                  
+                        </div>
+                </div>
+                <div class=row>      
+                    <hr>                      
+                    <div class="col-xs-4 col-md-6">
+                        <br>
+                        <br>
+                        <p>Female</p>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-xs-8 col-md-6">
+                            <label class="container">
+                                    <label class="container">Gold
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                          </label>
+                                          <label class="container">Silver
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                          </label>
+                                          <label class="container">Bronze
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                          </label>
+                                          <label class="container">All
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                          </label>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="col-md-5">
+            <div id="track-box-2">
+            </div>
+        </div>
+        <div class="col-md-5">
+                <div id="track-box-3">
+                        <script type="text/javascript" src="track.js"></script>
+
+                </div>
+            </div>
+        <div class="col-md-1"></div>
+          </div>
+    </div>
+
+<!-- Third Row -->
+    <div id="con3">
+      <div class=row>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <p><p id="p1">stuffffff</p></p>
+        </div>
+       <div class="col-md-4"></div>
+      </div>
+    </div> 
+<!-- ^ container div -->
+
+</div>
+
+</div>
+
+</body>
+
+</html>
