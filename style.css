@@ -82,62 +82,6 @@ font-family: 'Open Sans Condensed', sans-serif;
 
 }
 
-.container {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: 'Open Sans Condensed', sans-serif;
-
-}
-
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: #eee;
-}
-
-
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-.container input:checked ~ .checkmark {
-    background-color: #323330;
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.container .checkmark:after {
-    left: 6px;
-    top: -4px;
-    width: 6px;
-    height: 18px;
-    border: solid white;
-    border-width: 0 2px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
 
 #track-box-1 {
     padding: 15px;
@@ -187,9 +131,57 @@ font-family: 'Open Sans Condensed', sans-serif;
     left: 75px;
 }
 
-@media (max-width:1000px) {
-    #track-box-1 {
-        visibility: hidden;
-    }
 
+.section {
+    padding: 10px;
+    padding-left: 15px;
+  }
+  .section input[type="checkbox"]
+  {
+    display: none;
+  }
+  .container {
+    margin-bottom: -5px;
+  }
+  .container label {
+    position: relative;
+  }
+
+/* Base styles for spans */
+.container span::before,
+.container span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
+
+.container span.checkbox::before {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    left: -25px;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+    transition: border-color .2s;
+  }
+  .container span.checkbox:hover::before {
+    border: 3px solid #323330;
+  }
+  
+  .container span.checkbox::after {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    left: -25px;
+    top: 2px;
+    color: transparent;
+    transition: color .2s;
+
+  }
+
+
+  input[type="checkbox"]:checked + label span.checkbox::after {
+    color: white;
+    background-color: #323330;
+  }
