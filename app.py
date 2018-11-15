@@ -50,11 +50,7 @@ def trackapi ():
 
 
 
-@app.route("/remove")
-def remove ():
-    #Deleting a Task with various references
-   
-    return redirect("/")
+
 
 
 
