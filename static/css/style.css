@@ -54,8 +54,9 @@
 
 
 #top {
-    margin-top: -10px;
     font-family:'Open Sans Condensed', sans-serif;
+    background-color: #F0DB4F;
+    padding:0px;
 }
 
 #head2 {
@@ -236,9 +237,7 @@ tr {
         width: 100%;
     }
     
-#track-box-3 {
 
-}
     
 
     
