@@ -14,18 +14,20 @@ var margin = {top: 50, right: 20, bottom: 30, left: 160},
     width = 1000 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
-// Date domain
-var mindate = new Date(1948)
-var maxdate = new Date(2016)
+ // Set dimensions of canvas/graph
+ var margin = {top: 50, right: 20, bottom: 30, left: 160},
+ width = 1000 - margin.left - margin.right,
+ height = 550 - margin.top - margin.bottom;
 
 // Set the ranges
-var x = d3.time.scale().domain([mindate, maxdate]).range([0, width])
+var x = d3.scale.linear().range([0, width])
 var y = d3.scale.linear().range([height, 0]);
 
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(6)
-    .tickFormat(d3.time.format("%Y"))
+ .orient("bottom")
+ .tickValues(d3.range(1948, 2020, 4))
+ .tickFormat(d3.format("d"))
 
 var yAxis = d3.svg.axis().scale(y)
     .orient("left").ticks(10);

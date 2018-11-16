@@ -15,38 +15,54 @@ data = "./Olympic sqlite and csv files/        "
 app = Flask(__name__)
 
 
+#database stuff ###################
+
+
+
+###################################
+
 @app.route('/')
 def home():
 
-    return redirect("http://www.example.com", code=302)
+    return render_template("index.html")
 
-@app.route('/sprint')
-def sprintpage():
+@app.route('/contact')
+def contact():
 
-    return redirect("http://www.example.com", code=302)
+    return render_template("contact.html")
 
 
 @app.route('/field')
 def fieldpage():
 
-    return redirect("http://www.example.com", code=302)
+    return render_template("field.html")
+
+@app.route('/track')
+def trackpage():
+
+    return render_template("track.html")
+
+@app.route('/data')
+def datapage():
+
+    return render_template("data.html")
 
 
-@app.route("/api/v1.0/field")
-def fieldapi ():
-    #tasks
-     all = session.query().all()
+# @app.route("/api/v1.0/field")
+# def fieldapi ():
+#     #tasks
+#     all = session.query().all()
 
-   return jsonify()
+#     return jsonify()
 
 
 
-@app.route("/api/v1.0/track")
-def trackapi ():
-    #tasks
-    all = session.query().all()
+# @app.route("/api/v1.0/track")
+# def trackapi ():
+#     #tasks
+#     all = session.query().all()
 
-   return jsonify()
+#     return jsonify()
 
 
 

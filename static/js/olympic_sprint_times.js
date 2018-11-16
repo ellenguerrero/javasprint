@@ -14,22 +14,19 @@ function filterJSON(json, key, value) {
       width = 1000 - margin.left - margin.right,
       height = 550 - margin.top - margin.bottom;
   
-  // Date domain
-  var mindate = new Date(1948)
-  var maxdate = new Date(2016)
-  
   // Set the ranges
-  var x = d3.time.scale().domain([mindate, maxdate]).range([0, width])
+  var x = d3.scale.linear().range([0, width])
   var y = d3.scale.linear().range([height, 0]);
   
   // Define the axes
   var xAxis = d3.svg.axis().scale(x)
-      .orient("bottom").ticks(6)
-      .tickFormat(d3.time.format("%Y"))
+      .orient("bottom")
+      .tickValues(d3.range(1948, 2020, 4))
+      .tickFormat(d3.format("d"))
   
   var yAxis = d3.svg.axis().scale(y)
       .orient("left").ticks(10);
-  
+      
   // Define line
   var recordline = d3.svg.line()
       .interpolate("cardinal")
@@ -46,7 +43,7 @@ function filterJSON(json, key, value) {
                 "translate(" + margin.left + "," + margin.top + ")");
   var data;
   // Get data
-  d3.json("olympic_sprint_times.json", function(error, json) {
+  d3.json("../static/js/olympic_sprint_times.json", function(error, json) {
     console.log(json)
    
     json.forEach(function(d) {

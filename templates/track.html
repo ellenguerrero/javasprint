@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/olympic_sprint_styles.css">
+
+<!-- import from Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300, bold" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+<!-- import js files -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<title>{% block title %}Track Events{% endblock %}</title>
+
+</head>
+
+<body>
+
+<!-- First Row
+<div id="con1">
+    <div class=row>
+    <div class="col-md-10"><h1 id="head1"><img src="../static/img/TrackEvents.png" height="100"><img src="..static/img/track-icon.png" height="100"><hr></h1>
+    </div>
+    <div class="col-md-2">
+        <div id="back-to-home">
+            <a href="https://ellenguerrero.github.io/javasprint/">back to home</a></div>
+        </div>
+    </div>
+</div>  -->
+
+<select id="inds">
+		<option value="100 meters female" selected="selected">100 meters female</option>
+    <option value="100 meters male">100 meters male</option>
+    <option value="200 meters female">200 meters female</option>
+    <option value="200 meters male">200 meters male</option>
+    <option value="400 meters female">400 meters female</option>
+		<option value="400 meters male">400 meters male</option>
+</select>
+<div id="legendContainer" class="legendContainer">
+	<svg id="legend"></svg>
+</div>
+<div id="showAll">
+	<input name="showAllButton"
+	 type="button"
+	 value="Show All"
+	 onclick="showAll()" />
+</div>
+<div id="clearAll">
+	<input name="clearAllButton"
+	 type="button"
+	 value="Clear All"
+	 onclick="clearAll()" />
+</div>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="../static/js/olympic_sprint_times.js"></script>
+      
+<!-- Second row -->
+    
+
+<!-- Third Row -->
+    
+<!-- ^ container div -->
+
+</body>
+
+</html>
