@@ -83,7 +83,6 @@ def fieldapi ():
     return jsonify(all_results)
 
 
-
 # @app.route("/api/v1.0/trackdiff")
 # def trackdiffapi ():
 #     #tasks
@@ -101,12 +100,6 @@ def fieldapi ():
 #     all = db.session.query().all()
 
 #     return jsonify(all)
-
-
-
-
-
-
 
 if __name__ == '__main__':
 #     Bind to PORT if defined, otherwise default to 5000.
