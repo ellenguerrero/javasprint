@@ -1,23 +1,18 @@
-from flask import Flask, render_template,request,redirect,url_for,jsonify
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy import  func
-import os
+from sqlalchemy import func
 
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect)
 
-data = "./Olympic sqlite and csv files/        "
-data = "./Olympic sqlite and csv files/        "
-data = "./Olympic sqlite and csv files/        "
-
-
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 
 #database stuff ###################
-
-
 
 ###################################
 
@@ -50,21 +45,34 @@ def datapage():
 
 
 
-# @app.route("/api/v1.0/field")
-# def fieldapi ():
-#     #tasks
-#     all = session.query().all()
+@app.route("/api/v1.0/field")
+def fieldapi ():
+    #tasks
+    
+    all = db.session.query().all()
 
-#     return jsonify()
+    return jsonify(all)
 
 
 
-# @app.route("/api/v1.0/track")
-# def trackapi ():
-#     #tasks
-#     all = session.query().all()
+@app.route("/api/v1.0/trackdiff")
+def trackdiffapi ():
+    #tasks
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_differences_sql"
+    db = SQLAlchemy(app)
+    all = db.session.query().all()
 
-#     return jsonify()
+    return jsonify(all)
+
+
+@app.route("/api/v1.0/tracktimes")
+def tracktimesapi ():
+    #tasks
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_times_sql"
+    db = SQLAlchemy(app)
+    all = db.session.query().all()
+
+    return jsonify(all)
 
 
 
