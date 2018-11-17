@@ -6,14 +6,28 @@ from flask import (
     jsonify,
     request,
     redirect)
-
+import numpy as np
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_differences_sql"
+# db = SQLAlchemy(app)
 
 #database stuff ###################
+engine = create_engine("sqlite:///db/field_events.sqlite")
 
+# reflect an existing database into a new model
+Base = automap_base()
+
+# reflect the tables
+Base.prepare(engine, reflect=True)
+FD = Base.classes.field_events_data_xlsx_Sheet1
+# Create our session (link) from Python to the DB
+session = Session(engine)
 ###################################
 
 @app.route('/')
@@ -45,34 +59,42 @@ def datapage():
 
 
 
-@app.route("/api/v1.0/field")
+@app.route("/api/v1.0/Discus")
 def fieldapi ():
     #tasks
+    # data = engine.execute("SELECT * FROM discus")
+    results = session.query(FD.Sport).all()
+
+    # all_results = []
+    # for passenger in results:
+    #     passenger_dict = {}
+    #     passenger_dict["Sport"] = passenger.Sport
+    #     passenger_dict["Sex"] = passenger.Sex
+    #     passenger_dict["City"] = passenger.City
+    #     all_results.append(passenger_dict)
+
+    # print(data)
+    return jsonify(results)
+
+
+
+# @app.route("/api/v1.0/trackdiff")
+# def trackdiffapi ():
+#     #tasks
     
-    all = db.session.query().all()
+#     all = session.query().all()
 
-    return jsonify(all)
-
-
-
-@app.route("/api/v1.0/trackdiff")
-def trackdiffapi ():
-    #tasks
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_differences_sql"
-    db = SQLAlchemy(app)
-    all = db.session.query().all()
-
-    return jsonify(all)
+#     return jsonify(all)
 
 
-@app.route("/api/v1.0/tracktimes")
-def tracktimesapi ():
-    #tasks
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_times_sql"
-    db = SQLAlchemy(app)
-    all = db.session.query().all()
+# @app.route("/api/v1.0/tracktimes")
+# def tracktimesapi ():
+#     #tasks
+#     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/olympic_sprint_times_sql"
+#     db = SQLAlchemy(app)
+#     all = db.session.query().all()
 
-    return jsonify(all)
+#     return jsonify(all)
 
 
 
