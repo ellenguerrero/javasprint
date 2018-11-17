@@ -59,22 +59,28 @@ def datapage():
 
 
 
-@app.route("/api/v1.0/Discus")
+@app.route("/api/v1.0/field")
 def fieldapi ():
     #tasks
     # data = engine.execute("SELECT * FROM discus")
-    results = session.query(FD.Sport).all()
+    results = session.query(FD.Sport, FD.Sex, FD.City, FD.Year, FD.G, FD.S, FD.B, FD.avg_medalists, FD.baseline_medalists).all()
 
-    # all_results = []
-    # for passenger in results:
-    #     passenger_dict = {}
-    #     passenger_dict["Sport"] = passenger.Sport
-    #     passenger_dict["Sex"] = passenger.Sex
-    #     passenger_dict["City"] = passenger.City
-    #     all_results.append(passenger_dict)
+    all_results = []
+    for passenger in results:
+        passenger_dict = {}
+        passenger_dict["baseline_medalists"] = passenger.baseline_medalists
+        passenger_dict["avg_medalists"] = passenger.avg_medalists
+        passenger_dict["B"] = passenger.B
+        passenger_dict["S"] = passenger.S
+        passenger_dict["G"] = passenger.G
+        passenger_dict["Year"] = passenger.Year
+        passenger_dict["Sport"] = passenger.Sport
+        passenger_dict["Sex"] = passenger.Sex
+        passenger_dict["City"] = passenger.City
+        all_results.append(passenger_dict)
 
     # print(data)
-    return jsonify(results)
+    return jsonify(all_results)
 
 
 
